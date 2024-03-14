@@ -1,0 +1,18 @@
+function findSpareChairs(meetingRooms, need) {
+    const takenChairs = meetingRooms.map(room => {
+        const [occupants, totalChairs] = room;
+        const spareChairs = Math.max(0, totalChairs - occupants.length);
+        const chairsToTake = Math.min(need, spareChairs);
+        need -= chairsToTake;
+        return chairsToTake;
+    });
+    return need === 0 ? takenChairs.slice(0, takenChairs.length - 1) : 0;
+}
+
+const meetingRooms = [['XXX', 3], ['XXXXX', 6], ['XXXXXX', 9], ['XXX', 2]];
+const need = 4;
+const result = findSpareChairs(meetingRooms, need);
+console.log(result)
+
+
+Run: [ 0, 1, 3 ]
