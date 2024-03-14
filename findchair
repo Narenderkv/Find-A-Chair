@@ -1,4 +1,4 @@
-function findSpareChairs(meetingRooms, need) {
+function findChairs(meetingRooms, need) {
     const takenChairs = meetingRooms.map(room => {
         const [occupants, totalChairs] = room;
         const spareChairs = Math.max(0, totalChairs - occupants.length);
